@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+
+</head>
+<body>
+   <header class=" w-[80%] mx-auto">
+    <h1 class="text-6xl font-bold text-green-500 mb-10">plant Tracker</h1>
+    <div class="grid grid-cols-3 gap-8 ">
+        <div class="bg-amber-300 p-4 rounded-xl">
+            <p>Total</p>
+            <p id="total">0</p>
+        </div>
+        <div class="bg-green-300 p-4 rounded-xl">
+             <p>Interview</p>
+            <p id="thriveCount">0</p>
+        </div>
+        <div class="bg-red-300 p-4 rounded-xl">
+             <p>Rejected</p>
+            <p id="strugglingCount">0</p>
+        </div>
+    </div>
+   </header>
+
+   <hr class="my-5">
+   <main class=" w-[80%] mx-auto">
+    <div class="mb-5">
+        <button onclick="toggleStyle('all-filter-btn')" class="bg-black px-5 py-2 text-white" id="all-filter-btn">All</button>
+        <button onclick="toggleStyle('thrive-filter-btn')" class="bg-gray-300 px-5 py-2" id="thrive-filter-btn">Interview</button>
+        <button onclick="toggleStyle('Struggling-filter-btn')" class="bg-gray-300 px-5 py-2" id="Struggling-filter-btn">Rejected</button>
+    </div>
+
+<section id="filtered-section">
+
+</section>
+  <section id="allCards" class="space-y-4">
+    <!-- card1 -->
+     <div class="card flex justify-between border p-8">
+        <!-- main part 1 -->
+       <div class="space-y-6">
+           <div>
+            <p class="plantName text-4xl">Toyota</p>
+            <p class="latinName">DEVELOPER</p>
+           </div>  
+           <!-- part-2 -->
+            <div class="flex gap-2">
+               
+                 <p  class="light">Remote•Full-time •$130,000 - $175,000</p>
+                </div>
+           <!-- part-3 -->
+                 <p class="status">Not application </p>
+                 <p class="notes"> new leaf unfurling by the east window </p>
+                 
+                 <div class="flex gap-5">
+                    <button class="thrive-btn bg-green-300 px-4 py-2">Interview</button>
+                    <button class="struggline-btn bg-red-300 px-4 py-2">Rejected</button>
+                 </div>
+            
+        </div>
+         <!-- main part 2 -->
+ 
+        <div>
+           <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">delete</button>
+        </div>
+     </div>
+ 
+     
+
+<!-- card-2 -->
+
+  <div class="card flex justify-between border p-8">
+        <!-- main part 1 -->
+        <div class="space-y-6">
+           <div>
+            <p class="plantName text-4xl">HONDA</p>
+            <p class="latinName">DEVELOPER</p>
+           </div>  
+           <!-- part-2 -->
+            <div class="flex gap-2">
+               
+                <p  class="light">Remote•Full-time •$130,000 - $175,000</p>
+                </div>
+           <!-- part-3 -->
+                 <p class="status">Not application </p>
+                 <p class="notes"> new leaf unfurling by the east window </p>
+                 
+                  <div class="flex gap-5">
+                    <button class="thrive-btn bg-green-300 px-4 py-2">Interview</button>
+                    <button class="struggline-btn bg-red-300 px-4 py-2">Rejected</button>
+                 </div>
+            
+        </div>
+         <!-- main part 2 -->
+
+        <div>
+           <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">delete</button>
+        </div>
+     </div>
+
+
+     <!-- card-3 -->
+        <div class="card flex justify-between border p-8">
+        <!-- main part 1 -->
+        <div class="space-y-6">
+           <div>
+            <p class="plantName text-4xl">BMW</p>
+            <p class="latinName">DEVELOPER</p>
+           </div>  
+           <!-- part-2 -->
+            <div class="flex gap-2">
+             <p  class="light">Remote•Full-time •$130,000 - $175,000</p>
+                </div>
+           <!-- part-3 -->
+                 <p class="status">Not application </p>
+                 <p class="notes"> new leaf unfurling by the east window </p>
+                 
+                <div class="flex gap-5">
+                    <button class="thrive-btn bg-green-300 px-4 py-2">Interview</button>
+                    <button class="struggline-btn bg-red-300 px-4 py-2">Rejected</button>
+                 </div>
+            
+        </div>
+         <!-- main part 2 -->
+
+        <div>
+           <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">delete</button>
+        </div>
+     </div>
+
+     <!-- card-4 -->
+        <div class="card flex justify-between border p-8">
+        <!-- main part 1 -->
+        <div class="space-y-6">
+           <div>
+            <p class="plantName text-4xl">MERCEDES</p>
+            <p class="latinName">DEVELOPER</p>
+           </div>  
+           <!-- part-2 -->
+            <div class="flex gap-2">
+              <p  class="light">Remote•Full-time •$130,000 - $175,000</p>
+                </div>
+           <!-- part-3 -->
+                 <p class="status">Not application </p>
+                 <p class="notes"> new leaf unfurling by the east window </p>
+                 
+                <div class="flex gap-5">
+                    <button class="thrive-btn bg-green-300 px-4 py-2">Interview</button>
+                    <button class="struggline-btn bg-red-300 px-4 py-2">Rejected</button>
+                 </div>
+            
+        </div>
+         <!-- main part 2 -->
+
+        <div>
+           <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">delete</button>
+        </div>
+     </div>
+
+
+     <!-- card-5 -->
+        <div class="card flex justify-between border p-8">
+        <!-- main part 1 -->
+        <div class="space-y-6">
+           <div>
+            <p class="plantName text-4xl">AUDI</p>
+            <p class="latinName">DEVELOPER</p>
+           </div>  
+           <!-- part-2 -->
+            <div class="flex gap-2">
+               <p  class="light">Remote•Full-time •$130,000 - $175,000</p>
+                </div>
+           <!-- part-3 -->
+                 <p class="status">Not application </p>
+                 <p class="notes"> new leaf unfurling by the east window </p>
+                 
+               <div class="flex gap-5">
+                    <button class="thrive-btn bg-green-300 px-4 py-2">Interview</button>
+                    <button class="struggline-btn bg-red-300 px-4 py-2">Rejected</button>
+                 </div>
+            
+        </div>
+         <!-- main part 2 -->
+
+        <div>
+           <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">delete</button>
+        </div>
+     </div>
+
+      <!-- card-6 -->
+        <div class="card flex justify-between border p-8">
+        <!-- main part 1 -->
+        <div class="space-y-6">
+           <div>
+            <p class="plantName text-4xl">TESLA</p>
+            <p class="latinName">DEVELOPER</p>
+           </div>  
+           <!-- part-2 -->
+            <div class="flex gap-2">
+               <p  class="light">Remote•Full-time •$130,000 - $175,000</p>
+                </div>
+           <!-- part-3 -->
+                 <p class="status">Not application </p>
+                 <p class="notes"> new leaf unfurling by the east window </p>
+                 
+                 <div class="flex gap-5">
+                    <button class="thrive-btn bg-green-300 px-4 py-2">Interview</button>
+                    <button class="struggline-btn bg-red-300 px-4 py-2">Rejected</button>
+                 </div>
+            
+        </div>
+         <!-- main part 2 -->
+
+        <div>
+               <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">delete</button>
+        </div>
+     </div>
+      <!-- card-7 -->
+        <div class="card flex justify-between border p-8">
+        <!-- main part 1 -->
+        <div class="space-y-6">
+           <div>
+            <p class="plantName text-4xl">FORD</p>
+            <p class="latinName">DEVELOPER</p>
+           </div>  
+           <!-- part-2 -->
+            <div class="flex gap-2">
+               <p  class="light">Remote•Full-time •$130,000 - $175,000</p>
+                </div>
+           <!-- part-3 -->
+                 <p class="status">Not application </p>
+                 <p class="notes"> new leaf unfurling by the east window </p>
+                 
+                 <div class="flex gap-5">
+                    <button class="thrive-btn bg-green-300 px-4 py-2">Interview</button>
+                    <button class="struggline-btn bg-red-300 px-4 py-2">Rejected</button>
+                 </div>
+            
+        </div>
+         <!-- main part 2 -->
+
+        <div>
+           <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">delete</button>
+        </div>
+     </div>
+
+
+       <!-- card-8 -->
+        <div class="card flex justify-between border p-8">
+        <!-- main part 1 -->
+        <div class="space-y-6">
+           <div>
+            <p class="plantName text-4xl">SUPRA</p>
+            <p class="latinName">DEVELOPER</p>
+           </div>  
+           <!-- part-2 -->
+            <div class="flex gap-2">
+           <p  class="light">Remote•Full-time •$130,000 - $175,000</p>
+                </div>
+           <!-- part-3 -->
+                 <p class="status">Not application </p>
+                 <p class="notes"> new leaf unfurling by the east window </p>
+                 
+               <div class="flex gap-5">
+                    <button class="thrive-btn bg-green-300 px-4 py-2">Interview</button>
+                    <button class="struggline-btn bg-red-300 px-4 py-2">Rejected</button>
+                 </div>
+            
+        </div>
+         <!-- main part 2 -->
+
+        <div>
+           <button class="btn-delete bg-red-200 text-red-600 px-4 py-2">delete</button>
+        </div>
+     </div>
+
+
+
+     
+
+  <div>
+     
+   <div id="allCards"> 
+    <div id="noJobs" class="text-center p-8 text-gray-500 hidden ">
+        No jobs available
+        <p></p>
+    </div>
+</div>
+  </div>
+
+
+
+  </section>
+
+
+
+
+<script src="./script.js"></script>
+<script src="./style.js"></script>
+<script src="./div.js"></script>
+
+   </main>
+</body>
+</html>
