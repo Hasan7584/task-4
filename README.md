@@ -50,6 +50,8 @@ NodeList
 Many
 Static
 2️⃣ DOM এ নতুন Element তৈরি ও Insert করা
+
+
 Step 1: Create
 Js
 Copy code
@@ -66,7 +68,10 @@ document.body.appendChild(div);
 Js
 Copy code
 parent.append(div);
+
+
 3️⃣ Event Bubbling কী?
+
 Event bubbling মানে event নিচের element থেকে উপরের parent এ যেতে থাকে।
 উদাহরণ:
 Html
@@ -89,7 +94,11 @@ Copy code
 Child Clicked
 Parent Clicked
 কারণ event নিচ থেকে উপরে bubble হয়।
+
+
 4️⃣ Event Delegation কী? কেন দরকার?
+
+
 Event Delegation মানে parent element এ event লাগিয়ে child গুলো control করা।
 কেন দরকার?
 Memory save হয়
@@ -105,6 +114,9 @@ document.getElementById("parent").addEventListener("click", function(e){
 });
 👉 এখানে সব button এর জন্য আলাদা listener লাগাতে হয় না।
 5️⃣ preventDefault() vs stopPropagation()
+
+
+
 🔹 preventDefault()
 Default behaviour বন্ধ করে।
 উদাহরণ:
