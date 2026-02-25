@@ -1,101 +1,117 @@
-const allCards = document.getElementById("allCards");
-const total = document.getElementById("total");
-const thriveCount = document.getElementById("thriveCount");
-const strugglingCount = document.getElementById("strugglingCount");
 
-// update count jonno ei function kora holo
-function updateCounts() {
-  const cards = document.querySelectorAll(".card");
-  total.innerText = cards.length;
+let currentTab='all';
+let tabActive=["bg-black","text-white"];
+let tabInactive=["bg-gray-300","text-black"];
 
-  let thrive = 0;
-  let struggling = 0;
 
-  cards.forEach(card => {
-    const status = card.querySelector(".status").innerText;
 
-    if (status === "Thrive") {
-      thrive++;
-    } else if (status === "Struggling") {
-      struggling++;
+
+let allContainer=document.getElementById("all-container");
+let interviewContainer=document.getElementById("interview-container");
+let rejectedContainer=document.getElementById("rejected-container");
+let emptyElement=document.getElementById("empty-state")
+
+
+
+
+function switchTab(tab){
+    
+    const tabs=["all","interview","rejected"];
+    currentTab=tab;
+    for(let t of tabs){
+        let tabName=document.getElementById("tab-"+t);
+        if( t===tab){
+            tabName.classList.remove(...tabInactive);
+            tabName.classList.add(...tabActive);
+        }else{
+            tabName.classList.remove(...tabActive);
+            tabName.classList.add(...tabInactive);
+        }
     }
-  });
 
-  thriveCount.innerText = thrive;
-  strugglingCount.innerText = struggling;
+  
+    allContainer.classList.add("hidden");
+    interviewContainer.classList.add("hidden");
+    rejectedContainer.classList.add("hidden");
+
+    emptyElement.classList.add("hidden")
+  
+
+    if(tab==="all"){
+        allContainer.classList.remove("hidden");
+        if(allContainer.children.length<1){
+            emptyElement.classList.remove("hidden") 
+        }
+    }else if(tab==="interview"){
+        interviewContainer.classList.remove("hidden");
+        if(interviewContainer.children.length<1){
+            emptyElement.classList.remove("hidden") 
+        }
+    }else{ 
+        rejectedContainer.classList.remove("hidden");
+        if(rejectedContainer.children.length<1){
+            emptyElement.classList.remove("hidden") 
+        }
+    }
 }
 
-// event delegation part start
-allCards.addEventListener("click", function (event) {
-  const card = event.target.closest(".card");
-  if (!card) return;
 
-  // thrive button jonno kas korlam
-  if (event.target.classList.contains("thrive-btn")) {
-    card.querySelector(".status").innerText = "Thrive";
-    updateCounts();
-  }
+let totalStat=document.getElementById("stat-total");
+let interviewStat=document.getElementById("stat-interview");
+let rejectedStat=document.getElementById("stat-rejected");
+let availableStat=document.getElementById('available')
 
-  // struggling button jonno kas korlam
-  if (event.target.classList.contains("struggline-btn")) {
-    card.querySelector(".status").innerText = "Struggling";
-    updateCounts();
-  }
 
-  // delete button jono kas start hoise
-  if (event.target.classList.contains("btn-delete")) {
-    card.remove();
-    updateCounts();
-  }
+totalStat.innerText=allContainer.children.length;
+
+switchTab(currentTab);
+
+document.getElementById("jobs-container").addEventListener("click",function(event){
+   let clickElement=event.target;
+   let card=clickElement.closest(".card");
+   if(!card) return; 
+
+   if(clickElement.classList.contains("interview")){
+     interviewContainer.appendChild(card);
+     updateStat()
+   }
+
+   if(clickElement.classList.contains("rejected")){
+    rejectedContainer.appendChild(card);
+    updateStat()
+   }
+
+   if(clickElement.classList.contains("delete")){
+       card.remove();
+       updateStat()
+  
+   }
 });
 
 
-function toggleStyle(activeId) {
-  const buttons = [
-    "all-filter-btn",
-    "thrive-filter-btn",
-    "Struggling-filter-btn"
-  ];
 
-  buttons.forEach(id => {
-    const btn = document.getElementById(id);
-    btn.classList.remove("bg-black", "text-white");
-    btn.classList.add("bg-gray-300");
-  });
+function updateStat(){
+//     totalStat.innerText=allContainer.children.length
+//     interviewStat.innerText=interviewContainer.children.length
+//   rejectedStat.innerText=rejectedContainer.children.length
 
-  const activeBtn = document.getElementById(activeId);
-  activeBtn.classList.remove("bg-gray-300");
-  activeBtn.classList.add("bg-black", "text-white");
 
-  filterCards(activeId);
+let count={
+    all:allContainer.children.length,
+    interview:interviewContainer.children.length,
+    rejected:rejectedContainer.children.length
 }
+totalStat.innerText=count['all']
+interviewStat.innerText=count['interview']
+rejectedStat.innerText=count['rejected']
 
-
-
-function filterCards(filterId) {
-  const cards = document.querySelectorAll(".card");
-
-  cards.forEach(card => {
-    const status = card.querySelector(".status").innerText;
-
-    if (filterId === "all-filter-btn") {
-      card.classList.remove("hidden");
-    } 
-    else if (filterId === "thrive-filter-btn") {
-      if (status === "Thrive") {
-        card.classList.remove("hidden");
-      } else {
-        card.classList.add("hidden");
-      }
-    } 
-    else if (filterId === "Struggling-filter-btn") {
-      if (status === "Struggling") {
-        card.classList.remove("hidden");
-      } else {
-        card.classList.add("hidden");
-      }
-    }
-  });
+availableStat.innerText=count[currentTab]
+if(count[currentTab]<1){
+   emptyElement.classList.remove("hidden") 
 }
-
-updateCounts();
+else{
+     emptyElement.classList.add("hidden") 
+}
+switchTab(currentTab)
+}
+updateStat()
