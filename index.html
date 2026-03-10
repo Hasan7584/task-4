@@ -7,220 +7,128 @@
  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
-
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-   <header class=" w-[80%] mx-auto">
-    <h1 class="text-6xl font-bold text-green-500 mb-10 text-center">Job Application Tracker</h1>
-    <div class="grid grid-cols-3 gap-8 ">
-        <div class="bg-amber-300 p-4 rounded-xl">
-            <p>Total</p>
-            <p id="stat-total">0</p>
-        </div>
-        <div class="bg-green-300 p-4 rounded-xl">
-             <p>Interview</p>
-            <p id="stat-interview" >0</p>
-        </div>
-        <div class="bg-red-300 p-4 rounded-xl">
-             <p>Rejected</p>
-            <p id="stat-rejected">0</p>
-        </div>
-    </div>
-   </header>
-
-   <hr class="my-5">
-   <main class=" w-[80%] mx-auto">
-    <h1 class="text-3xl mb-5">Available Jobs</h1>
-    <div class="flex justify-between">
-    <div class="mb-5 ">
-        <button id="tab-all" onclick="switchTab('all')" class="px-4 py-2 rounded-xl text-xl  border">All</button>
-        <button id="tab-interview" onclick="switchTab('interview')"  class="px-4 py-2 rounded-xl text-xl  border">Interview</button>
-        <button id="tab-rejected" onclick="switchTab('rejected')"  class="px-4 py-2 rounded-xl text-xl  border">Rejected</button>
-    </div>
-
-
-    <div>
-        <p class="text-4xl" id="available">8</p>
-    </div>
-    </div>
-    
-             <section class="space-y-4 " id="card-container">
-           <div id="jobs-container" class="flex flex-col gap-4 ">
-         <section class=" hidden" id="all-container">
-        <div class=" card flex justify-between items-start gap-4  p-4 shadow-2xl bg-white rounded-2xl mb-5 ">
-            <div class="flex-1 min-w-0">
-                <p class="mb-2 text-4xl font-bold">Google</p>
-                <p class="mb-2">FontEnd-Developer</p>
-                <p class="mb-2">Remote•Full-time•$130,000 - $175,000</p>
-      
-                 <div class="mb-2 status">Not Applied</div>
-                    <p class="mb-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                     <div class="flex gap-5 mb-2">
-                    <button class=" bg-green-300 px-4 py-2 interview">interview</button>
-                    <button class=" bg-red-300 px-4 py-2 rejected"> Rejected</button>
-                 </div>
-            </div>
-          <button class="btn-delete bg-white-200 text-black-600 py-1 px-2  rounded-full delete">
-           <i class="fa-solid fa-trash-can pointer-events-none" ></i>   </button>
-        </div>
-
-<!-- 2nd -->
-
-
-    <div class=" card flex justify-between items-start gap-4  p-4 shadow-2xl bg-white rounded-2xl mb-5 ">
-            <div class="flex-1 min-w-0">
-                <p class="mb-2 text-4xl font-bold">Microsoft</p>
-                <p class="mb-2"> Developer</p>
-                <p class="mb-2">Remote•Full-time•$130,000 - $195,000</p>
-      
-                 <div class="mb-2 status">Not Applied</div>
-                    <p class="mb-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                     <div class="flex gap-5 mb-2">
-                    <button class=" bg-green-300 px-4 py-2 interview">interview</button>
-                    <button class=" bg-red-300 px-4 py-2 rejected"> Rejected</button>
-                 </div>
-            </div>
-          <button class="btn-delete bg-white-200 text-black-600 py-1 px-2  rounded-full delete">
-           <i class="fa-solid fa-trash-can pointer-events-none"></i>   </button>
-        </div>
-
-
-        <!-- 3rd -->
-    <div class=" card flex justify-between items-start gap-4  p-4 shadow-2xl bg-white rounded-2xl mb-5 ">
-            <div class="flex-1 min-w-0">
-                <p class="mb-2 text-4xl font-bold">Apple</p>
-                <p class="mb-2">React Developer</p>
-                <p class="mb-2">Remote•Full-time•$130,000 - $175,000</p>
-      
-                 <div class="mb-2 status">Not Applied</div>
-                    <p class="mb-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                     <div class="flex gap-5 mb-2">
-                    <button class=" bg-green-300 px-4 py-2 interview">interview</button>
-                    <button class=" bg-red-300 px-4 py-2 rejected"> Rejected</button>
-                 </div>
-            </div>
-          <button class="btn-delete bg-white-200 text-black-600 py-1 px-2  rounded-full delete">
-           <i class="fa-solid fa-trash-can pointer-events-none"></i>   </button>
-        </div>
-
-        <!-- 4th card -->
-             <div class=" card flex justify-between items-start gap-4  p-4 shadow-2xl bg-white rounded-2xl mb-5 ">
-            <div class="flex-1 min-w-0">
-                <p class="mb-2 text-4xl font-bold">Amazon</p>
-                <p class="mb-2"> Developer</p>
-                <p class="mb-2">Remote•Full-time•$234,000 - $270,000</p>
-      
-                 <div class="mb-2 status">Not Applied</div>
-                    <p class="mb-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                     <div class="flex gap-5 mb-2">
-                    <button class=" bg-green-300 px-4 py-2 interview">interview</button>
-                    <button class=" bg-red-300 px-4 py-2 rejected"> Rejected</button>
-                 </div>
-            </div>
-          <button class="btn-delete bg-white-200 text-black-600 py-1 px-2  rounded-full delete">
-           <i class="fa-solid fa-trash-can pointer-events-none"></i>   </button>
-        </div>
+     <header>
         
-<!-- 5th card -->
- <div class=" card flex justify-between items-start gap-4  p-4 shadow-2xl bg-white rounded-2xl mb-5 ">
-            <div class="flex-1 min-w-0">
-                <p class="mb-2 text-4xl font-bold">Meta</p>
-                <p class="mb-2">React Native Developer</p>
-                <p class="mb-2">Remote•Full-time•$130,000 - $175,000</p>
-      
-                 <div class="mb-2 status">Not Applied</div>
-                    <p class="mb-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                     <div class="flex gap-5 mb-2">
-                    <button class=" bg-green-300 px-4 py-2 interview">interview</button>
-                    <button class=" bg-red-300 px-4 py-2 rejected"> Rejected</button>
-                 </div>
-            </div>
-          <button class="btn-delete bg-white-200 text-black-600 py-1 px-2  rounded-full delete">
-           <i class="fa-solid fa-trash-can pointer-events-none"></i>   </button>
-        </div>
+<nav class=" p-4 bg-gray-300 text-black flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+  
+  <!-- Logo Section -->
+  <div class="flex items-center gap-2 justify-center md:justify-start">
+    <img class="h-8" src="./assets/github-logo.png" alt="GitHub Logo">
+    <h1 class="text-xl font-bold">GitHub Issues Tracker</h1>
+  </div>
 
-
-<!-- 6th card -->
- <div class=" card flex justify-between items-start gap-4  p-4 shadow-2xl bg-white rounded-2xl mb-5 ">
-            <div class="flex-1 min-w-0">
-                <p class="mb-2 text-4xl font-bold">Tesla</p>
-                <p class="mb-2">FontEnd-Developer</p>
-                <p class="mb-2">Remote•Full-time•$130,000 - $175,000</p>
-      
-                 <div class="mb-2 status">Not Applied</div>
-                    <p class="mb-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                     <div class="flex gap-5 mb-2">
-                    <button class=" bg-green-300 px-4 py-2 interview">interview</button>
-                    <button class=" bg-red-300 px-4 py-2 rejected"> Rejected</button>
-                 </div>
-            </div>
-          <button class="btn-delete bg-white-200 text-black-600 py-1 px-2  rounded-full delete">
-           <i class="fa-solid fa-trash-can pointer-events-none"></i>   </button>
-        </div>
-
-
-<!-- 7th card  -->
-  <div class=" card flex justify-between items-start gap-4  p-4 shadow-2xl bg-white rounded-2xl mb-5 ">
-            <div class="flex-1 min-w-0">
-                <p class="mb-2 text-4xl font-bold">Samsung</p>
-                <p class="mb-2"> Developer</p>
-                <p class="mb-2">Remote•Full-time•$140,000 - $175,000</p>
-      
-                 <div class="mb-2 status">Not Applied</div>
-                    <p class="mb-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                     <div class="flex gap-5 mb-2">
-                    <button class=" bg-green-300 px-4 py-2 interview">interview</button>
-                    <button class=" bg-red-300 px-4 py-2 rejected"> Rejected</button>
-                 </div>
-            </div>
-          <button class="btn-delete bg-white-200 text-black-600 py-1 px-2  rounded-full delete">
-           <i class="fa-solid fa-trash-can pointer-events-none"></i>   </button>
-        </div>
-
-
-
-        <!-- 8th card -->
-            <div class=" card flex justify-between items-start gap-4  p-4 shadow-2xl bg-white rounded-2xl mb-5 ">
-            <div class="flex-1 min-w-0">
-                <p class="mb-2 text-4xl font-bold">IBM</p>
-                <p class="mb-2">BackEnd-Developer</p>
-                <p class="mb-2">Remote•Full-time•$230,000 - $295,000</p>
-      
-                 <div class="mb-2 status">Not Applied</div>
-                    <p class="mb-2">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                     <div class="flex gap-5 mb-2">
-                    <button class=" bg-green-300 px-4 py-2 interview">interview</button>
-                    <button class=" bg-red-300 px-4 py-2 rejected"> Rejected</button>
-                 </div>
-            </div>
-          <button class="btn-delete bg-white-200 text-black-600 py-1 px-2  rounded-full delete">
-           <i class="fa-solid fa-trash-can pointer-events-none"></i>   </button>
-        </div>         
-     </section>
-    <section class="hidden" id="interview-container" >Interview Section</section>
-     <section class="hidden" id="rejected-container">Rejected Section</section>
-</div>
-
-
-
-
- <!-- empty state -->
-
-
-<div id="empty-state" class=" flex-1 items-center justify-center py-20 gap-4 text-center border ">
-    <div><i class="fa-regular fa-folder text-7xl"></i></div>
-    <p>No jobs available</p>
-    <p>Check back soon for new job opportunities</p>
-</div>
-<script src="./style.js"></script>
-<!-- <script src="./style.js"></script> -->
-
-   </main>
-   
-
-
-   <script>
+  <!-- Search + Button Section -->
+  <div class="flex flex-col md:flex-row items-center gap-2 justify-center md:justify-end w-full md:w-auto">
     
-   </script>
+    <!-- Search input with icon -->
+    <div class="relative w-full md:w-64">
+      <i class="fa-solid fa-magnifying-glass absolute left-2 top-2.5 text-gray-400"></i>
+      <input id="search-input" 
+             class="pl-8 p-2 w-full text-black font-bold bg-gray-500 rounded" 
+             placeholder="Search issue">
+    </div>
+
+    <!-- New Issue button -->
+    <button onclick="searchIssue()" class="bg-blue-500 text-white px-4 py-2 rounded w-full md:w-auto">
+      + New Issue
+    </button>
+  </div>
+
+</nav>
+    </header>
+  <!-- three button  -->
+   <section class=" mb-5  mt-5  w-11/12 mx-auto">
+    
+   <div class=" ">
+ <button id="tab-all" onclick="switchTab('all')" class="px-4 py-2 rounded-xl text-xl  border">All</button>
+ <button id="tab-opened" onclick="switchTab('opened')"  class="px-4 py-2 rounded-xl text-xl  border">Open</button>
+ <button id="tab-closed" onclick="switchTab('closed')"  class="px-4 py-2 rounded-xl text-xl  border">Close</button>
+    </div>
+   </section>
+
+    <section class="w-11/12 mx-auto mb-10 bg-gray-100 p-4 ">
+       <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-6">
+        
+         <div class="flex gap-4"> 
+          <div class=" border-e-amber-200 bg-gray-300 p-4 rounded-full">
+          <img  src="./assets/Aperture.png" alt="" srcset="">
+          </div>
+          
+          <div class="">
+        <p class="text-3xl font-bold">50 Issues</p>
+        <p>Track and manage your project issues</p>
+      </div>
+        </div>
+
+      <div class=" flex items-center gap-1"> 
+      <i class="fa-solid fa-circle" style="color: rgb(44, 214, 20);"></i>Open
+         <i class="fa-solid fa-circle" style="color: (#A855F7);"></i>Close
+      </div>
+      </div>
+    </section>
+
+<!-- spinner part -->
+<div id="spinner" class="hidden text-center my-10">
+<span class="loading loading-spinner loading-lg"></span>
+</div>
+
+
+
+<!-- dainamic babe api card load kora -->
+
+<div id="level-container" class="bg-gray-100 p-10 w-11/12 mx-auto gap-5  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  ">
+      <!-- <div class="flex justify-between">
+       
+         <button><img src="./Open-Status.png" alt="" srcset=""></button>
+        <button><img src="./Closed- Status .png" alt="" srcset=""></button>
+        <button class="rounded-lg p-2 bg-pink-300">medium</button>
+      </div>
+      <h2 class="text-xl">Fix navigation menu on mobile devices</h2>
+    <p>The navigation menu doesn't collapse properly on mobile devices...</p>
+    <div class="flex gap-40">
+        <button>Bug</button>
+        <button>help wanted</button>
+    </div>
+    <p>#1by john_doe</p>
+   <p>1/15/2024</p> -->
+</div>
+
+<section>
+
+<!-- Open the modal using ID.showModal() method -->
+<!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+<dialog id="word_modal" class="modal modal-bottom sm:modal-middle ">
+  <div class="modal-box">
+   <div id="details-container">
+
+      <!-- <div>
+         <h2 class="text-2xl font-bold">Fix broken image uploads</h2>
+      <div class="flex justify-center items-center gap" >
+             <button class="bg-green-500 p-2 rounded-xl">${word.status}</button> 
+         <p>${word.assignee}</p>
+         <p>${word.createdAt}</p> </div>
+         <div>
+            <button>Bug</button>
+            <button>help wanted</button>
+         </div>
+         <p>The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.</p> -->
+      </div>
+   </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+</section>
+  <script src="./index.js"></script>
 </body>
 </html>
